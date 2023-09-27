@@ -1,14 +1,15 @@
 # VueBlog
 
-VueBlog is a simple blogging platform built with Vue.js, designed to allow users to create and share blog posts with text and images. It features a user-friendly interface for uploading images, adding descriptions, and posting text-based content.
+VueBlog is a simple blogging platform built with Vue.js, designed to allow users to create and share blog posts with text and images. It features a user-friendly interface for uploading images and videos, adding descriptions, and posting text-based content.
 
 ## Features
 
-- Upload and manage images.
+- Upload and manage images and videos.
 - Add descriptions to images.
 - Create and edit blog posts with text content.
-- Display date and time for each post or image.
-- Delete posts and images.
+- Display date and time for each post or image or video.
+- Delete posts, images and videos.
+- Like any type of posts using heart icon
 
 ## Getting Started
 
