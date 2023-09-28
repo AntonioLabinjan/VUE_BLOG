@@ -5,7 +5,10 @@
       <iframe v-else :src="item.url" frameborder="0" allowfullscreen></iframe>
       <p>Datum i vrijeme postavljanja: {{ item.date }}</p>
       <span @click="toggleLike(index)">
-        <i class="fas fa-heart" :class="{ 'liked': item.liked }"></i>
+        <i class="fas fa-heart" :class="{ 'liked': item.liked, 'disliked': item.disliked }"></i>
+      </span>
+      <span @click="toggleDislike(index)">
+        <i class="fas fa-thumbs-down" :class="{ 'disliked': item.disliked, 'liked': item.liked }"></i>
       </span>
     </div>
   </div>
@@ -23,39 +26,57 @@ export default {
         post.liked = false;
       } else {
         post.liked = true;
+        if (post.disliked) {
+          post.disliked = false;
+        }
+      }
+    },
+    toggleDislike(index) {
+      const post = this.items[index];
+      if (post.disliked) {
+        post.disliked = false;
+      } else {
+        post.disliked = true;
+        if (post.liked) {
+          post.liked = false;
+        }
       }
     },
   },
 };
 </script>
 
-
 <style scoped>
-/* Stil za lajk ikonu */
 .liked {
-  color: red; /* Promijenite boju ikone kada je lajkano */
-  cursor: pointer; /* Dodajte pokazivač ruke za lajk ikonu */
+  color: red; 
+  cursor: pointer; 
 }
-/* Resetiranje osnovnih stilova */
+
+.disliked {
+	color: red;
+	cursor: pointer;
+}
+
+
 body, html {
   margin: 0;
   padding: 0;
   font-family: Arial, sans-serif;
 }
 
-/* Postavljanje pozadinske boje za cijelu stranicu */
+
 body {
-  background-color: #f2f2f2;
+  background-color: #f5f5f5;
 }
 
-/* Glavni naslov */
+
 h2 {
   text-align: center;
   color: #333;
   padding: 20px;
 }
 
-/* Unos teksta i gumb za dodavanje posta */
+
 input[type="file"], textarea {
   display: block;
   width: 100%;
@@ -82,7 +103,7 @@ button:hover {
   background-color: #0056b3;
 }
 
-/* Stil za pojedinačni post */
+
 div {
   background-color: #fff;
   border: 1px solid #ccc;
@@ -92,25 +113,22 @@ div {
   position: relative;
 }
 
-/* Stil za sliku u postu */
+
 img {
   max-width: 100%;
   height: auto;
 }
 
-/* Stil za datum i vrijeme */
+
 p {
   color: #777;
   font-size: 14px;
   margin-top: 10px;
 }
 
-/* Stil za uređivanje i brisanje teksta/posta */
+
 button:hover {
   background-color: #ff6347;
   color: #fff;
 }
-
-
-
 </style>
