@@ -10,6 +10,7 @@ VueBlog is a simple blogging platform built with Vue.js, designed to allow users
 - Display date and time for each post or image or video.
 - Delete posts, images and videos.
 - Like any type of posts using heart icon
+- Dislike any tipe of posts using thumbs down icon
 
 ## Getting Started
 
@@ -43,6 +44,8 @@ VueBlog is a simple blogging platform built with Vue.js, designed to allow users
 <ul>Add descriptions to your images by typing in the provided input field and pressing Enter.</ul>
 <ul>Create text-based blog posts by entering your content in the text area and clicking the "Add Post" button.</ul>
 <ul>Edit or delete posts and descriptions using the provided buttons.</ul>
+<ul>Upload YT videos via link</ul>
+<ul>Like or dislike any tipe of posts</ul>
 
 ## Project setup
 ```
