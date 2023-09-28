@@ -72,4 +72,4 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 " VueBlog" 
 
 ### Link to a video demonstration
-https://reccloud.com/u/b4gwy2r
+https://youtu.be/Cgt-1YELFlk?si=N4mc9Npaltdwajr_
