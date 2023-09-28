@@ -21,9 +21,11 @@
           <button @click="deleteDescription(index)">Obriši opis</button>
         </div>
         <button @click="deleteImage(index)">Obriši sliku</button>
-        <!-- Dodaj ikonu srca za lajk -->
         <span @click="toggleLike(index)">
           <i class="fas fa-heart" :class="{ 'liked': item.liked }"></i>
+        </span>
+        <span @click="toggleDislike(index)">
+          <i class="fas fa-thumbs-down" :class="{ 'disliked': item.disliked }"></i>
         </span>
       </div>
       <div v-else-if="item.type === 'text'">
@@ -31,9 +33,11 @@
         <p>{{ item.text }}</p>
         <button @click="editText(index)">Uredi objavu</button>
         <button @click="deleteText(index)">Obriši objavu</button>
-        <!-- Dodaj ikonu srca za lajk -->
         <span @click="toggleLike(index)">
           <i class="fas fa-heart" :class="{ 'liked': item.liked }"></i>
+        </span>
+        <span @click="toggleDislike(index)">
+          <i class="fas fa-thumbs-down" :class="{ 'disliked': item.disliked }"></i>
         </span>
       </div>
       <div v-else-if="item.type === 'video'">
@@ -48,6 +52,9 @@
          <button @click="deleteVideo(index)">Obriši video</button>
         <span @click="toggleLike(index)">
           <i class="fas fa-heart" :class="{ 'liked': item.liked }"></i>
+        </span>
+        <span @click="toggleDislike(index)">
+          <i class="fas fa-thumbs-down" :class="{ 'disliked': item.disliked }"></i>
         </span>
       </div>
     </div>
@@ -78,7 +85,8 @@ export default {
               date: date.toLocaleString(),
               description: "", 
               editDescription: "", 
-              liked: false 
+              liked: false,
+              disliked: false
             });
           };
           reader.readAsDataURL(file);
@@ -92,7 +100,8 @@ export default {
           type: 'text',
           date: date.toLocaleString(),
           text: this.postText,
-          liked: false 
+          liked: false,
+          disliked: false
         });
         this.postText = ""; 
       }
@@ -121,12 +130,13 @@ export default {
     },
     addVideo() {
       if (this.videoLink.trim() !== "") {
-        const date = new Date(); // trenutno vrijeme
+        const date = new Date(); 
         this.items.push({
           type: 'video',
           url: this.videoLink,
           date: date.toLocaleString(),
-          liked: false
+          liked: false,
+          disliked: false
         });
         this.videoLink = "";
       }
@@ -134,11 +144,21 @@ export default {
     toggleLike(index) {
       const post = this.items[index];
       if (post.liked) {
-        // Post je već lajkan, trebamo ga "unlajkati"
         post.liked = false;
       } else {
-        // Post nije lajkan, lajkajmo ga
         post.liked = true;
+        post.disliked = false;
+      }
+    },
+    toggleDislike(index) {
+      const post = this.items[index];
+      if (post.disliked) {
+        // Undislajkaj post
+        post.disliked = false;
+      } else {
+        // Dislajkaj post i poništi lajk
+        post.disliked = true;
+        post.liked = false;
       }
     },
     getEmbedUrl(url) {
@@ -163,6 +183,10 @@ export default {
   color: red; /* Promijenite boju ikone kada je lajkano */
   cursor: pointer; /* Dodajte pokazivač ruke za lajk ikonu */
 }
+.disliked {
+  color: red;
+  cursor: pointer;
+}
 /* Resetiranje osnovnih stilova */
 body, html {
   margin: 0;
@@ -172,7 +196,7 @@ body, html {
 
 /* Postavljanje pozadinske boje za cijelu stranicu */
 body {
-  background-color: #f2f2f2;
+  background-color: #f5f5f5;
 }
 
 /* Glavni naslov */
