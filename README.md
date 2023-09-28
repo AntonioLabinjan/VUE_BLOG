@@ -70,3 +70,6 @@ npm run lint
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
 " VueBlog" 
+
+### Link to a video demonstration
+https://reccloud.com/u/b4gwy2r
