@@ -39,6 +39,10 @@
         <span @click="toggleDislike(index)">
           <i class="fas fa-thumbs-down" :class="{ 'disliked': item.disliked }"></i>
         </span>
+        <!-- Dodana ikona i funkcija za kopiranje teksta -->
+        <span @click="copyText(item.text)">
+          <i class="fas fa-copy"></i> Kopiraj
+        </span>
       </div>
       <div v-else-if="item.type === 'video'">
         <iframe
@@ -170,6 +174,17 @@ export default {
       if(confirm('Jeste li sigurni da želite obrisati video?')){
         this.items.splice(index,1);
       }
+    },
+    // Dodana funkcija za kopiranje teksta
+    copyText(text) {
+      const textarea = document.createElement("textarea");
+      textarea.value = text;
+      document.body.appendChild(textarea);
+      textarea.select();
+      textarea.setSelectionRange(0, 99999); // Za odabir teksta u većini preglednika
+      document.execCommand("copy");
+      document.body.removeChild(textarea);
+      alert("Tekst je kopiran u međuspremnik.");
     },
   },
 };
