@@ -11,6 +11,8 @@ VueBlog is a simple blogging platform built with Vue.js, designed to allow users
 - Delete posts, images and videos.
 - Like any type of posts using heart icon
 - Dislike any tipe of posts using thumbs down icon
+- Copy any text post using copy icon and paste it wherever
+- Open other social media platforms using designated buttons on the bottom of the page
 
 ## Getting Started
 
