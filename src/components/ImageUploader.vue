@@ -18,9 +18,9 @@
             placeholder="Unesite ili uredite opis slike"
           >
           <button @click="saveDescription(index)">Spremi opis</button>
-          <button @click="deleteDescription(index)">Obriši opis</button>
+          <button @click="deleteDescription(index)" class="delete">Obriši opis</button>
         </div>
-        <button @click="deleteImage(index)">Obriši sliku</button>
+        <button @click="deleteImage(index)" class="delete">Obriši sliku</button>
         <span @click="toggleLike(index)">
           <i class="fas fa-heart" :class="{ 'liked': item.liked }"></i>
         </span>
@@ -32,7 +32,7 @@
         <p>Datum i vrijeme postavljanja: {{ item.date }}</p>
         <p>{{ item.text }}</p>
         <button @click="editText(index)">Uredi objavu</button>
-        <button @click="deleteText(index)">Obriši objavu</button>
+        <button @click="deleteText(index)" class="delete">Obriši objavu</button>
         <span @click="toggleLike(index)">
           <i class="fas fa-heart" :class="{ 'liked': item.liked }"></i>
         </span>
@@ -53,7 +53,7 @@
           allowfullscreen
         ></iframe>
         <p>Datum i vrijeme postavljanja: {{ item.date }}</p>
-         <button @click="deleteVideo(index)">Obriši video</button>
+         <button @click="deleteVideo(index)" class="delete">Obriši video</button>
         <span @click="toggleLike(index)">
           <i class="fas fa-heart" :class="{ 'liked': item.liked }"></i>
         </span>
@@ -208,7 +208,7 @@ body, html {
 
 
 body {
-  background-color: #f5f5f5;
+  background-color: lightblue;
 }
 
 
@@ -241,6 +241,10 @@ button {
   font-size: 11px;
 }
 
+button.delete {
+ background-color: #ff6347;
+ color: #fff;
+}
 button:hover {
   background-color: #0056b3;
 }
