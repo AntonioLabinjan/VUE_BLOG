@@ -20,6 +20,10 @@
         <i class="fab fa-discord"></i> <!-- Font Awesome Discord ikonica -->
       </a>
     </div>
+	<TimeCounter />
+	<right>
+	<div><strong>Made by: Antonio Labinjan</strong></div>
+	</right>
   </div>
 </template>
 
@@ -27,12 +31,14 @@
 <script>
 import ImageUploader from "./components/ImageUploader.vue";
 import ImageGallery from "./components/ImageGallery.vue";
+import TimeCounter from "./components/TimeCounter.vue";
 
 export default {
   name: 'App',
   components: {
     ImageUploader,
     ImageGallery,
+	TimeCounter,
   },
   data() {
     return {
