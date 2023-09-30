@@ -20,7 +20,7 @@
 </template>
 
 <script>
-import '@fortawesome/fontawesome-free/css/all.css'; // Import Font Awesome
+import '@fortawesome/fontawesome-free/css/all.css'; 
 export default {
   props: {
     items: Array,
@@ -54,7 +54,7 @@ export default {
       textarea.value = text;
       document.body.appendChild(textarea);
       textarea.select();
-      textarea.setSelectionRange(0, 99999); // Za odabir teksta u većini preglednika
+      textarea.setSelectionRange(0, 99999); 
       document.execCommand("copy");
       document.body.removeChild(textarea);
       alert("Tekst je kopiran u međuspremnik.");
