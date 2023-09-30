@@ -76,3 +76,4 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 
 ### Link to a video demonstration
 https://youtu.be/Cgt-1YELFlk?si=N4mc9Npaltdwajr_
+(this video is a bit outdated, but I will make a new version soon; you can still watch it :) )
