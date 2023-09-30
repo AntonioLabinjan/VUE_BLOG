@@ -175,13 +175,13 @@ export default {
         this.items.splice(index,1);
       }
     },
-    // Dodana funkcija za kopiranje teksta
+    
     copyText(text) {
       const textarea = document.createElement("textarea");
       textarea.value = text;
       document.body.appendChild(textarea);
       textarea.select();
-      textarea.setSelectionRange(0, 99999); // Za odabir teksta u većini preglednika
+      textarea.setSelectionRange(0, 99999); 
       document.execCommand("copy");
       document.body.removeChild(textarea);
       alert("Tekst je kopiran u međuspremnik.");
