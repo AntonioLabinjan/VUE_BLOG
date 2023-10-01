@@ -14,6 +14,7 @@ VueBlog is a simple blogging platform built with Vue.js, designed to allow users
 - Copy any text post using copy icon and paste it wherever
 - Open other social media platforms using designated buttons on the bottom of the page
 - Track time you have spent using VueBlog with timer in the bottom right corner
+- Post comments which can be edited and deleted
 
 ## Getting Started
 
