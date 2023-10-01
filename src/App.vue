@@ -2,22 +2,25 @@
   <div id="app">
     <ImageUploader @filter="handleFilter" />
     <ImageGallery :items="filteredItems" />
+	<right>
+	<CommentSection/>
+	</right>
 	<center><h5>Also visit:</h5></center>
     <div class="social-icons">
       <a href="https://www.facebook.com" target="_blank">
-        <i class="fab fa-facebook"></i> 
+        <i class="fab fa-facebook"></i> <!-- Font Awesome Facebook ikonica -->
       </a>
       <a href="https://www.youtube.com" target="_blank">
-        <i class="fab fa-youtube"></i> 
+        <i class="fab fa-youtube"></i> <!-- Font Awesome YouTube ikonica -->
       </a>
       <a href="https://www.twitter.com" target="_blank">
-        <i class="fab fa-twitter"></i> 
+        <i class="fab fa-twitter"></i> <!-- Font Awesome Twitter ikonica -->
       </a>
       <a href="https://www.instagram.com" target="_blank">
-        <i class="fab fa-instagram"></i> 
+        <i class="fab fa-instagram"></i> <!-- Font Awesome Instagram ikonica -->
       </a>
       <a href="https://www.discord.com" target="_blank">
-        <i class="fab fa-discord"></i> 
+        <i class="fab fa-discord"></i> <!-- Font Awesome Discord ikonica -->
       </a>
     </div>
 	<TimeCounter />
@@ -32,6 +35,7 @@
 import ImageUploader from "./components/ImageUploader.vue";
 import ImageGallery from "./components/ImageGallery.vue";
 import TimeCounter from "./components/TimeCounter.vue";
+import CommentSection from "./components/CommentSection.vue";
 
 export default {
   name: 'App',
@@ -39,6 +43,7 @@ export default {
     ImageUploader,
     ImageGallery,
 	TimeCounter,
+	CommentSection,
   },
   data() {
     return {
