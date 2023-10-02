@@ -2,11 +2,11 @@
   <div id="app">
     <ImageUploader @filter="handleFilter" />
     <ImageGallery :items="filteredItems" />
-	<left><h5>Pick your emojis</h5></left>
-	<EmojiPicker @emoji-selected="handleEmojiSelected" />
 	<right>
 	<CommentSection/>
 	</right>
+	<left><h5>Pick your emojis</h5></left>
+	<EmojiPicker @emoji-selected="handleEmojiSelected" />
 	<center><h5>Also visit:</h5></center>
     <div class="social-icons">
       <a href="https://www.facebook.com" target="_blank">
@@ -46,8 +46,8 @@ export default {
     ImageUploader,
     ImageGallery,
 	TimeCounter,
-	EmojiPicker,
 	CommentSection,
+	EmojiPicker,
   },
   data() {
     return {
@@ -96,6 +96,10 @@ export default {
 .social-icons i {
   font-size: 36px; 
   color: #007bff; 
+  margin-bottom: 10px;
+}
+.space {
+  margin-bottom: 120px;
 }
 </style>
 
