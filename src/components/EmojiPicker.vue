@@ -74,7 +74,6 @@ export default {
 		{ emoji: "🎁", keywords: ["gift", "present"] },
 		{ emoji: "🌓", keywords: ["first quarter moon", "night"] },
 		{ emoji: "🐦", keywords: ["bird", "nature"] }
-        // Dodajte ostale emojije ovdje
       ],
       copiedEmoji: null,
     };
@@ -90,16 +89,13 @@ export default {
   },
   methods: {
     filterEmojis() {
-      // Filtriraj emojije prema unosu korisnika
     },
     copyEmoji(emoji) {
-      // Kopiraj odabrani emoji u međuspremnik
       navigator.clipboard.writeText(emoji.emoji).then(() => {
-        // Postavite kopirani smajlić i prikažite poruku
         this.copiedEmoji = emoji.emoji;
         setTimeout(() => {
-          this.copiedEmoji = null; // Nakon nekog vremena, sakrijte poruku
-        }, 2000); // Sakrijte poruku nakon 2 sekunde
+          this.copiedEmoji = null; 
+        }, 2000); 
       });
     },
   },
