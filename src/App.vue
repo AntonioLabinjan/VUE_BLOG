@@ -2,6 +2,8 @@
   <div id="app">
     <ImageUploader @filter="handleFilter" />
     <ImageGallery :items="filteredItems" />
+	<left><h5>Pick your emojis</h5></left>
+	<EmojiPicker @emoji-selected="handleEmojiSelected" />
 	<right>
 	<CommentSection/>
 	</right>
@@ -36,6 +38,7 @@ import ImageUploader from "./components/ImageUploader.vue";
 import ImageGallery from "./components/ImageGallery.vue";
 import TimeCounter from "./components/TimeCounter.vue";
 import CommentSection from "./components/CommentSection.vue";
+import EmojiPicker from "./components/EmojiPicker.vue";
 
 export default {
   name: 'App',
@@ -43,6 +46,7 @@ export default {
     ImageUploader,
     ImageGallery,
 	TimeCounter,
+	EmojiPicker,
 	CommentSection,
   },
   data() {
@@ -69,9 +73,12 @@ export default {
   },
   methods: {
     handleFilter(query) {
-      this.searchQuery = query;
+		this.searchQuery = query;
     },
+	handleEmojiSelected(emoji) {
+		this.selectedEmojis.push(emoji);
   },
+},
 }
 </script>
 
