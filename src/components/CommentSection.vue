@@ -2,13 +2,13 @@
   <div class="comments-section">
     <center><h3>Komentari:</h3></center>
     
-    
+    <!-- Unos novog komentara -->
     <div class="comment-input">
       <textarea v-model="newComment" placeholder="Unesite komentar"></textarea>
       <button @click="addComment">Dodaj komentar</button>
     </div>
     
-    
+    <!-- Prikaz postojećih komentara -->
     <div v-for="(comment, index) in comments" :key="index" class="comment" style="text-align: right;">
       <p v-if="editingIndex !== index">{{ comment.text }}</p>
       <textarea v-else v-model="newComment"></textarea>
@@ -27,7 +27,7 @@ export default {
     return {
       newComment: "",
       comments: [],
-      editingIndex: null, 
+      editingIndex: null, // Indeks komentara koji se uređuje
     };
   },
   methods: {
@@ -43,25 +43,34 @@ export default {
     },
 
     editComment(index) {
+      // Postavite indeks komentara koji se uređuje
       this.editingIndex = index;
+      // Postavite sadržaj uređivanog komentara u polje za unos
       this.newComment = this.comments[index].text;
     },
 
     saveEditedComment(index) {
       if (this.newComment.trim() !== "") {
+        // Ažurirajte tekst komentara
         this.comments[index].text = this.newComment;
+        // Poništite uređivanje
         this.editingIndex = null;
+        // Resetirajte polje za unos
         this.newComment = "";
       }
     },
 
     cancelEdit() {
+      // Poništite uređivanje
       this.editingIndex = null;
+      // Resetirajte polje za unos
       this.newComment = "";
     },
 
     deleteComment(index) {
+      // Pitajte korisnika za potvrdu brisanja
       if (confirm("Jeste li sigurni da želite obrisati ovaj komentar?")) {
+        // Obrišite komentar iz niza
         this.comments.splice(index, 1);
       }
     },
@@ -97,8 +106,9 @@ button {
   font-size: 14px;
 }
 
+/* Stil za tipku za brisanje */
 .comment button:nth-child(4) {
-  background-color: #ff6347; 
+  background-color: #ff6347; /* Crvena boja */
 }
 
 .comment {
