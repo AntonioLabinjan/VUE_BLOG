@@ -99,7 +99,7 @@ export default {
   margin-bottom: 10px;
 }
 .space {
-  margin-bottom: 120px; /* Dodajte željeni razmak ovdje */
+  margin-bottom: 120px; 
 }
 </style>
 
