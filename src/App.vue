@@ -10,19 +10,19 @@
 	<center><h5>Also visit:</h5></center>
     <div class="social-icons">
       <a href="https://www.facebook.com" target="_blank">
-        <i class="fab fa-facebook"></i> <!-- Font Awesome Facebook ikonica -->
+        <i class="fab fa-facebook"></i> 
       </a>
       <a href="https://www.youtube.com" target="_blank">
-        <i class="fab fa-youtube"></i> <!-- Font Awesome YouTube ikonica -->
+        <i class="fab fa-youtube"></i> 
       </a>
       <a href="https://www.twitter.com" target="_blank">
-        <i class="fab fa-twitter"></i> <!-- Font Awesome Twitter ikonica -->
+        <i class="fab fa-twitter"></i> 
       </a>
       <a href="https://www.instagram.com" target="_blank">
-        <i class="fab fa-instagram"></i> <!-- Font Awesome Instagram ikonica -->
+        <i class="fab fa-instagram"></i> 
       </a>
       <a href="https://www.discord.com" target="_blank">
-        <i class="fab fa-discord"></i> <!-- Font Awesome Discord ikonica -->
+        <i class="fab fa-discord"></i> 
       </a>
     </div>
 	<TimeCounter />
