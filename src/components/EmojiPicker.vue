@@ -1,6 +1,6 @@
 <template>
   <div class="emoji-picker">
-    <input v-model="searchTerm" placeholder="Pretraži emojije..." @input="filterEmojis" />
+    <input v-model="searchTerm" placeholder="Search emojis..." @input="filterEmojis" />
     <div class="emoji-results">
       <div
         v-for="(emoji, index) in filteredEmojis"
@@ -10,7 +10,7 @@
         {{ emoji.emoji }}
       </div>
     </div>
-    <div v-if="copiedEmoji" class="copied-message">{{ copiedEmoji }} kopiran!</div>
+    <div v-if="copiedEmoji" class="copied-message">{{ copiedEmoji }} copied!</div>
   </div>
 </template>
 
@@ -74,6 +74,7 @@ export default {
 		{ emoji: "🎁", keywords: ["gift", "present"] },
 		{ emoji: "🌓", keywords: ["first quarter moon", "night"] },
 		{ emoji: "🐦", keywords: ["bird", "nature"] }
+        // add more emojis here
       ],
       copiedEmoji: null,
     };
@@ -95,7 +96,7 @@ export default {
         this.copiedEmoji = emoji.emoji;
         setTimeout(() => {
           this.copiedEmoji = null; 
-        }, 2000); 
+        }, 2000);
       });
     },
   },
