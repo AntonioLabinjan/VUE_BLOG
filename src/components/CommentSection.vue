@@ -1,20 +1,20 @@
 <template>
   <div class="comments-section">
-    <center><h3>Komentari:</h3></center>
+    <center><h3>Comments:</h3></center>
     
     <div class="comment-input">
-      <textarea v-model="newComment" placeholder="Unesite komentar"></textarea>
-      <button @click="addComment">Dodaj komentar</button>
+      <textarea v-model="newComment" placeholder="Type in a comment"></textarea>
+      <button @click="addComment">Add comment</button>
     </div>
     
     <div v-for="(comment, index) in comments" :key="index" class="comment" style="text-align: right;">
       <p v-if="editingIndex !== index">{{ comment.text }}</p>
       <textarea v-else v-model="newComment"></textarea>
       <p>{{ comment.date }}</p>
-      <button v-if="editingIndex === index" @click="saveEditedComment(index)">Spremi</button>
-      <button v-else @click="editComment(index)">Uredi</button>
-      <button @click="deleteComment(index)">Obriši</button>
-      <button v-if="editingIndex === index" @click="cancelEdit">Odustani</button>
+      <button v-if="editingIndex === index" @click="saveEditedComment(index)">Save</button>
+      <button v-else @click="editComment(index)">Edit</button>
+      <button @click="deleteComment(index)">Delete</button>
+      <button v-if="editingIndex === index" @click="cancelEdit">Cancel</button>
     </div>
   </div>
 </template>
@@ -25,7 +25,7 @@ export default {
     return {
       newComment: "",
       comments: [],
-      editingIndex: null, 
+      editingIndex: null,
     };
   },
   methods: {
@@ -59,7 +59,7 @@ export default {
     },
 
     deleteComment(index) {
-      if (confirm("Jeste li sigurni da želite obrisati ovaj komentar?")) {
+      if (confirm("Are you sure you want to delete this comment?")) {
         this.comments.splice(index, 1);
       }
     },
@@ -95,9 +95,8 @@ button {
   font-size: 14px;
 }
 
-/* Stil za tipku za brisanje */
 .comment button:nth-child(4) {
-  background-color: #ff6347; /* Crvena boja */
+  background-color: #ff6347; 
 }
 
 .comment {
