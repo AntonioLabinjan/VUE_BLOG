@@ -3,7 +3,7 @@
     <div v-for="(item, index) in items" :key="index">
       <img v-if="item.type === 'image'" :src="item.url" alt="Slika">
       <iframe v-else :src="item.url" frameborder="0" allowfullscreen></iframe>
-      <p>Datum i vrijeme postavljanja: {{ item.date }}</p>
+      <p>Uploaded on: {{ item.date }}</p>
       <div>
         <span @click="toggleLike(index)">
           <i class="fas fa-heart" :class="{ 'liked': item.liked, 'disliked': item.disliked }"></i>
@@ -12,7 +12,7 @@
           <i class="fas fa-thumbs-down" :class="{ 'disliked': item.disliked, 'liked': item.liked }"></i>
         </span>
         <span @click="copyText(item.text)">
-          <i class="fas fa-clipboard"></i> Kopiraj
+          <i class="fas fa-clipboard"></i> Copy
         </span>
       </div>
     </div>
@@ -20,7 +20,7 @@
 </template>
 
 <script>
-import '@fortawesome/fontawesome-free/css/all.css'; // Import Font Awesome
+import '@fortawesome/fontawesome-free/css/all.css';
 export default {
   props: {
     items: Array,
@@ -54,10 +54,10 @@ export default {
       textarea.value = text;
       document.body.appendChild(textarea);
       textarea.select();
-      textarea.setSelectionRange(0, 99999); // Za odabir teksta u većini preglednika
+      textarea.setSelectionRange(0, 99999); 
       document.execCommand("copy");
       document.body.removeChild(textarea);
-      alert("Tekst je kopiran u međuspremnik.");
+      alert("Text copied to clipboard.");
     },
   },
 };
@@ -131,14 +131,13 @@ div {
 }
 
 
-/* Dodajte ovaj stil za okvir oko slika */
 img {
   max-width: 100%;
   height: auto;
-  border: 1px solid #ccc; /* Boja i debljina okvira */
-  border-radius: 5px; /* Zaobljeni rubovi okvira */
-  padding: 5px; /* Razmak između slike i okvira */
-  margin-bottom: 10px; /* Razmak između slika */
+  border: 1px solid #ccc; 
+  border-radius: 5px; 
+  padding: 5px; 
+  margin-bottom: 10px;
 }
 
 
