@@ -2,25 +2,25 @@
   <div>
     <center><h1>VueBlog</h1></center>
     <input type="file" @change="uploadImages" multiple>
-    <textarea v-model="postText" placeholder="Unesite tekst objave"></textarea>
-    <input v-model="videoLink" placeholder="Unesite URL videa">
-    <button @click="addPost">Dodaj objavu</button>
-    <button @click="addVideo">Dodaj video</button>
+    <textarea v-model="postText" placeholder="Type in post text"></textarea>
+    <input v-model="videoLink" placeholder="Type in video URL">
+    <button @click="addPost">Add post</button>
+    <button @click="addVideo">Add video</button>
     <div v-for="(item, index) in items" :key="index">
       <div v-if="item.type === 'image'">
-        <img :src="item.url" alt="Prenesena slika">
-        <p>Datum i vrijeme postavljanja: {{ item.date }}</p>
+        <img :src="item.url" alt="Uploaded image">
+        <p>Uploaded on: {{ item.date }}</p>
         <div>
           <p v-if="item.description">{{ item.description }}</p>
           <input
             type="text"
             v-model="item.editDescription"
-            placeholder="Unesite ili uredite opis slike"
+            placeholder="Type in or edit picture description"
           >
-          <button @click="saveDescription(index)">Spremi opis</button>
-          <button @click="deleteDescription(index)" class="delete">Obriši opis</button>
+          <button @click="saveDescription(index)">Save description</button>
+          <button @click="deleteDescription(index)" class="delete">Delete description</button>
         </div>
-        <button @click="deleteImage(index)" class="delete">Obriši sliku</button>
+        <button @click="deleteImage(index)" class="delete">Delete image</button>
         <span @click="toggleLike(index)">
           <i class="fas fa-heart" :class="{ 'liked': item.liked }"></i>
         </span>
@@ -29,19 +29,18 @@
         </span>
       </div>
       <div v-else-if="item.type === 'text'">
-        <p>Datum i vrijeme postavljanja: {{ item.date }}</p>
+        <p>Posted on: {{ item.date }}</p>
         <p>{{ item.text }}</p>
-        <button @click="editText(index)">Uredi objavu</button>
-        <button @click="deleteText(index)" class="delete">Obriši objavu</button>
+        <button @click="editText(index)">Edit post</button>
+        <button @click="deleteText(index)" class="delete">Delete post</button>
         <span @click="toggleLike(index)">
           <i class="fas fa-heart" :class="{ 'liked': item.liked }"></i>
         </span>
         <span @click="toggleDislike(index)">
           <i class="fas fa-thumbs-down" :class="{ 'disliked': item.disliked }"></i>
         </span>
-        <!-- Dodana ikona i funkcija za kopiranje teksta -->
         <span @click="copyText(item.text)">
-          <i class="fas fa-copy"></i> Kopiraj
+          <i class="fas fa-copy"></i> Copy
         </span>
       </div>
       <div v-else-if="item.type === 'video'">
@@ -52,8 +51,8 @@
           frameborder="0"
           allowfullscreen
         ></iframe>
-        <p>Datum i vrijeme postavljanja: {{ item.date }}</p>
-         <button @click="deleteVideo(index)" class="delete">Obriši video</button>
+        <p>Posted on: {{ item.date }}</p>
+         <button @click="deleteVideo(index)" class="delete">Delete video</button>
         <span @click="toggleLike(index)">
           <i class="fas fa-heart" :class="{ 'liked': item.liked }"></i>
         </span>
@@ -128,7 +127,7 @@ export default {
       }
     },
     deleteText(index) {
-      if (confirm("Jeste li sigurni da želite obrisati ovaj tekst?")) {
+      if (confirm("Are you sure you want to delete?")) {
         this.items.splice(index, 1);
       }
     },
@@ -171,20 +170,19 @@ export default {
       return url;
     },
     deleteVideo(index) {
-      if(confirm('Jeste li sigurni da želite obrisati video?')){
+      if(confirm('Are you sure you want to delete this video?')){
         this.items.splice(index,1);
       }
     },
-    // Dodana funkcija za kopiranje teksta
     copyText(text) {
       const textarea = document.createElement("textarea");
       textarea.value = text;
       document.body.appendChild(textarea);
       textarea.select();
-      textarea.setSelectionRange(0, 99999); // Za odabir teksta u većini preglednika
+      textarea.setSelectionRange(0, 99999);
       document.execCommand("copy");
       document.body.removeChild(textarea);
-      alert("Tekst je kopiran u međuspremnik.");
+      alert("Text copied to clipboard.");
     },
   },
 };
